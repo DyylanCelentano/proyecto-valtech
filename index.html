@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entrenador de Entrevistas</title>
     <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="src/animacion-carta.css">
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
@@ -40,19 +41,20 @@
             <!-- carta 1 -->
             <div class="w-full aspect-[3/4] bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
 
-              <div class="carta-frente">
+              <div class="card-inner">
 
+                <!-- Carta de frente -->
                 <div class="card-front flex items-center justify-center">
-                  <img src="images/fondo-fundacion-bna.png" alt="" class="rounded-2xl">
+                  <img src="images/fondo-fundacion-bna.png" alt="" class="rounded-2xl h-24 w-24">
                 </div>
 
-                <!-- carta-atras -->
+                <!-- card-back -->
 
-                <div class="carta-atras flex items-center justify-center bg-gray-200">
+                <div class="card-back flex items-center justify-center bg-gray-200 hidden">
                   <p class="text-center text-gray-700 px-4">Texto de la pregunta</p>
                 </div>
 
-              </div> <!-- carta-frente -->
+              </div> <!-- carta-innit -->
 
             </div> <!-- Contenedor principal carta 1 -->
 
@@ -60,52 +62,82 @@
             <!-- carta 2 -->
             <div class="w-full aspect-[3/4] bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
 
-              <div class="carta-frente">
+              <div class="card-innit">
 
                 <div class="card-front flex items-center justify-center">
-                  <img src="images/logo-pescar-completo.webp" alt="" class="rounded-2xl">
+                  <img src="images/logo-pescar-completo.webp" alt="" class="rounded-2xl h-35 w-35">
                 </div>
 
-                <!-- carta-atras -->
+                <!-- card-back -->
 
-                <div class="carta-atras flex items-center justify-center bg-gray-200">
+                <div class="card-back flex items-center justify-center bg-gray-200 hidden">
                   <p class="text-center text-gray-700 px-4">Texto de la pregunta</p>
                 </div>
 
-              </div> <!-- carta-frente -->
+              </div> <!-- card-innit -->
 
             </div> <!-- Contenedor principal carta 2 -->
 
 
+            <!-- carta 3 -->
             <div class="w-full aspect-[3/4] bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
-              <div class="w-19 h-19 rounded-full flex items-center justify-center">
-                 <img src="images/fondo-pescar.jpg" alt="" class="rounded-2xl">
-              </div>
-            </div>
+
+              <div class="card-innit">
+
+                <div class="card-front flex items-center justify-center">
+                  <img src="images/fondo-fundacion-bna.png" alt="" class="rounded-2xl h-24 w-24">
+                </div>
+
+                <!-- card-back -->
+
+                <div class="card-back flex items-center justify-center bg-gray-200 hidden">
+                  <p class="text-center text-gray-700 px-4">Texto de la pregunta</p>
+                </div>
+
+              </div> <!-- card-innit -->
+
+            </div> <!-- Contenedor principal carta 3 -->
 
 
+            <!-- carta 4 -->
             <div class="w-full aspect-[3/4] bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
-              <div class="w-19 h-19 flex items-center justify-center">
-                <img src="images/fondo-fundacion-bna.png" alt="" class="rounded-2xl">
-              </div>
-            </div>
 
+              <div class="card-innit">
 
+                <div class="card-front flex items-center justify-center">
+                  <img src="images/logo-pescar-completo.webp" alt="" class="rounded-2xl h-35 w-35">
+                </div>
+
+                <!-- card-back -->
+
+                <div class="card-back flex items-center justify-center bg-gray-200 hidden">
+                  <p class="text-center text-gray-700 px-4">Texto de la pregunta</p>
+                </div>
+
+              </div> <!-- card-innit -->
+
+            </div> <!-- Contenedor principal carta 4 -->
+
+            <!-- carta 5 -->
             <div class="w-full aspect-[3/4] bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
-              <div class="w-19 h-19 rounded-full flex items-center justify-center">
-                <img src="images/fondo-pescar.jpg" alt="" class="rounded-2xl">
-              </div>
-            </div>
 
+              <div class="card-innit">
 
-            <div class="w-full aspect-[3/4] bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
-              <div class="w-19 h-19 flex items-center justify-center">
-                <img src="images/fondo-fundacion-bna.png" alt="" class="rounded-2xl">
-              </div>
-            </div>
+                <div class="card-front flex items-center justify-center">
+                  <img src="images/fondo-fundacion-bna.png" alt="" class="rounded-2xl h-24 w-24">
+                </div>
 
+                <!-- card-back -->
 
-          </div>
+                <div class="card-back flex items-center justify-center bg-gray-200 hidden">
+                  <p class="text-center text-gray-700 px-4">Texto de la pregunta</p>
+                </div>
+
+              </div> <!-- card-innit -->
+
+            </div> <!-- Contenedor principal carta 5 -->
+
+          </div> <!-- Contenedor de cartas -->
 
         </div> <!-- Flex -->
 
