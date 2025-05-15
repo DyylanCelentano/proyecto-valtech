@@ -13,7 +13,7 @@ const returnButton = document.getElementById('returnButton');
 function dealCards() {
   mainCard.classList.add('hidden');
   dealtCards.classList.remove('hidden');
-  questionsPanel.classList.remove('hidden');
+/*   questionsPanel.classList.remove('hidden'); */
 
   // Agregá clase .show con pequeño delay para animar
   const cards = dealtCards.querySelectorAll('.card-dealt');
@@ -34,7 +34,7 @@ function returnToDeck() {
   setTimeout(() => {
     mainCard.classList.remove('hidden');
     dealtCards.classList.add('hidden');
-    questionsPanel.classList.add('hidden');
+/*     questionsPanel.classList.add('hidden'); */
   }, 400); // Esperamos que se termine de ocultar
 }
 
