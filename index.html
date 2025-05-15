@@ -13,8 +13,11 @@
 
   </head>
 
-  <body class="min-h-screen">
-    <img src="/images/logo-laburatorio.webp" alt="Logo evento Laburatorio">
+  <body class="min-h-screen flex flex-col justify-between">
+    <header class="w-full flex justify-center py-4">
+      <img src="/images/logo-laburatorio.webp" alt="Logo evento Laburatorio"
+          class="h-40 md:h-42 object-contain">
+    </header>
     <div class="flex flex-col items-center justify-center min-h-screen p-4">
       <h1 class="text-4xl md:text-5xl font-bold text-center text-[#1e2837] mb-4">ENTRENADOR DE ENTREVISTAS</h1>
 
@@ -81,8 +84,9 @@
       </div>
     </div>
 
-    <footer>
-      <img src="/images/img-footer.webp" alt="Imagen del navbar">
+    <footer class="w-full mt-auto">
+        <img src="/images/img-footer.webp" alt="Imagen del navbar"
+          class="w-full object-cover">
     </footer>
 
     <script type="module" src="src/main.js"></script>
