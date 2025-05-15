@@ -13,27 +13,32 @@
 
   </head>
 
-  <body class="min-h-screen flex flex-col justify-between">
+  <body class="min-h-screen flex flex-col justify-between text-white">
     <header class="w-full flex justify-center py-4">
       <img src="/images/logo-laburatorio.webp" alt="Logo evento Laburatorio"
           class="h-40 md:h-42 object-contain">
     </header>
-    <div class="flex flex-col items-center justify-center min-h-screen p-4">
-      <h1 class="text-4xl md:text-5xl font-bold text-center text-[#1e2837] mb-4">ENTRENADOR DE ENTREVISTAS</h1>
 
-      <p class="text-xl text-center text-gray-600 mb-8">Hacé click para repartir 5 cartas</p>
 
-      <div class="flex flex-col md:flex-row w-full max-w-6xl gap-6 justify-center items-start">
+    <main class="flex flex-col items-center justify-center min-h-screen p-4">
+
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-4">ENTRENADOR DE ENTREVISTAS</h1>
+
+      <p class="text-xl text-center mb-8">Hacé click para repartir 5 cartas</p>
+
+      <div class="flex flex-col md:flex-row w-full max-w-6xl gap-6 justify-center items-start"> <!-- Contenedor principal -->
         <div class="flex flex-col items-center w-full md:w-3/4">
           
-          <!-- Main Card (shown initially) -->
+          <!-- Carta Principal -->
           <div id="mainCard" class="w-64 h-80 bg-white rounded-xl border border-gray-200 shadow-md flex flex-col items-center justify-center cursor-pointer card">
             <i data-lucide="spade" class="w-24 h-24 text-[#1e2837] mb-6"></i>
             <p class="text-center text-gray-700 px-4">Hacé click para repartir 5 cartas</p>
           </div>
 
-          <!-- Dealt Cards (hidden initially) -->
+          <!-- Cartas que aparecen despues (al principio estan ocultas) -->
           <div id="dealtCards" class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full hidden">
+
+
             <div class="w-full aspect-[3/4] bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
               <div class="w-16 h-16 rounded-full bg-[#e57373] flex items-center justify-center">
                 <i data-lucide="club" class="w-10 h-10 text-white"></i>
@@ -55,6 +60,7 @@
               </div>
             </div>
           </div>
+
         </div>
 
 
@@ -81,8 +87,10 @@
             Volver al mazo
           </button>
         </div>
-      </div>
-    </div>
+
+      </div> <!-- Contenedor principal -->
+
+    </main>
 
     <footer class="w-full mt-auto">
         <img src="/images/img-footer.webp" alt="Imagen del navbar"
