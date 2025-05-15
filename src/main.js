@@ -14,14 +14,30 @@ function dealCards() {
   mainCard.classList.add('hidden');
   dealtCards.classList.remove('hidden');
   questionsPanel.classList.remove('hidden');
+
+  // Agregá clase .show con pequeño delay para animar
+  const cards = dealtCards.querySelectorAll('.card-dealt');
+  cards.forEach((card, index) => {
+    setTimeout(() => {
+      card.classList.add('show');
+    }, index * 100); // 100ms entre cada carta
+  });
 }
 
-// Return to deck function
+
 function returnToDeck() {
-  mainCard.classList.remove('hidden');
-  dealtCards.classList.add('hidden');
-  questionsPanel.classList.add('hidden');
+  const cards = dealtCards.querySelectorAll('.card-dealt');
+  cards.forEach((card) => {
+    card.classList.remove('show');
+  });
+
+  setTimeout(() => {
+    mainCard.classList.remove('hidden');
+    dealtCards.classList.add('hidden');
+    questionsPanel.classList.add('hidden');
+  }, 400); // Esperamos que se termine de ocultar
 }
+
 
 // Add event listeners
 mainCard.addEventListener('click', dealCards);
