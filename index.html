@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de entrevistas express - Laburatorio por Fundación Banco Nación</title>
+    <title>Entrenador de Entrevistas</title>
     <link rel="stylesheet" href="src/style.css">
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,19 +13,20 @@
 
   </head>
 
-  <body class="min-h-screen flex flex-col justify-between text-white">
+  <body class="min-h-screen flex flex-col justify-between bg-[#046089] text-white">
     <header class="w-full flex justify-center py-4">
       <img src="/images/logo-laburatorio.webp" alt="Logo evento Laburatorio"
           class="h-40 md:h-42 object-contain">
     </header>
-    <main class="flex flex-col items-center justify-center py-6">
+    <main class="flex flex-col items-center justify-center min-h-screen p-4">
 
-      <h1 class="text-4xl md:text-5xl font-bold text-center mb-4">SIMULADOR DE ENTREVISTAS EXPRESS</h1>
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-4">ENTRENADOR DE ENTREVISTAS</h1>
 
       <p class="text-xl text-center mb-8">Hacé click para repartir 5 cartas</p>
 
       <div class="flex flex-col md:flex-row w-full max-w-6xl gap-6 justify-center items-start"> <!-- Contenedor principal -->
-        <div class="flex flex-col items-center w-full md:w-3/4">
+        
+        <div class="flex flex-col items-center w-full md:w-3/4"> <!-- Flex -->
           
           <!-- Carta Principal -->
           <div id="mainCard" class="w-64 h-80 bg-white rounded-xl border border-gray-200 shadow-md flex flex-col items-center justify-center cursor-pointer card">
@@ -34,36 +35,79 @@
           </div>
 
           <!-- Cartas que aparecen despues (al principio estan ocultas) -->
-          <div id="dealtCards" class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full hidden">
+          <div id="dealtCards" class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full hidden"> <!-- Contenedor de cartas -->
 
+            <!-- carta 1 -->
             <div class="w-full aspect-[3/4] bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
-              <div class="w-19 h-19 flex items-center justify-center">
-                 <img src="images/fondo-fundacion-bna.png" alt="" class="rounded-2xl">
-              </div>
-            </div>
+
+              <div class="carta-frente">
+
+                <div class="card-front flex items-center justify-center">
+                  <img src="images/fondo-fundacion-bna.png" alt="" class="rounded-2xl">
+                </div>
+
+                <!-- carta-atras -->
+
+                <div class="carta-atras flex items-center justify-center bg-gray-200">
+                  <p class="text-center text-gray-700 px-4">Texto de la pregunta</p>
+                </div>
+
+              </div> <!-- carta-frente -->
+
+            </div> <!-- Contenedor principal carta 1 -->
+
+
+            <!-- carta 2 -->
+            <div class="w-full aspect-[3/4] bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
+
+              <div class="carta-frente">
+
+                <div class="card-front flex items-center justify-center">
+                  <img src="images/logo-pescar-completo.webp" alt="" class="rounded-2xl">
+                </div>
+
+                <!-- carta-atras -->
+
+                <div class="carta-atras flex items-center justify-center bg-gray-200">
+                  <p class="text-center text-gray-700 px-4">Texto de la pregunta</p>
+                </div>
+
+              </div> <!-- carta-frente -->
+
+            </div> <!-- Contenedor principal carta 2 -->
+
+
             <div class="w-full aspect-[3/4] bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
               <div class="w-19 h-19 rounded-full flex items-center justify-center">
                  <img src="images/fondo-pescar.jpg" alt="" class="rounded-2xl">
               </div>
             </div>
+
+
             <div class="w-full aspect-[3/4] bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
               <div class="w-19 h-19 flex items-center justify-center">
                 <img src="images/fondo-fundacion-bna.png" alt="" class="rounded-2xl">
               </div>
             </div>
+
+
             <div class="w-full aspect-[3/4] bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
               <div class="w-19 h-19 rounded-full flex items-center justify-center">
                 <img src="images/fondo-pescar.jpg" alt="" class="rounded-2xl">
               </div>
             </div>
+
+
             <div class="w-full aspect-[3/4] bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
               <div class="w-19 h-19 flex items-center justify-center">
                 <img src="images/fondo-fundacion-bna.png" alt="" class="rounded-2xl">
               </div>
             </div>
+
+
           </div>
 
-        </div>
+        </div> <!-- Flex -->
 
       </div> <!-- Contenedor principal -->
 
