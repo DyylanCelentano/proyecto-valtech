@@ -51,7 +51,7 @@ const preguntasPorCarta = [
   [
     "1. Para arrancar, contame un poco sobre vos. ¿Quién sos, de dónde venís, qué te gusta hacer?",
     "2. ¿Qué fue lo último que aprendiste que te haya entusiasmado, y cómo llegaste a eso?",
-    "3. ¿Mecánica tu organización para equilibrar estudios con otras responsabilidades?",
+    "3. Me interesa también saber cómo te organizas para equilibrar los estudios con otras actividades o responsabilidades",
     "4. En caso de que estés pensando en cambiar de trabajo, ¿qué te está motivando ese cambio?",
     "5. ¿Hay algún logro o momento en tu trayectoria que te haga sentir especialmente orgulloso?"
   ]
@@ -97,7 +97,7 @@ function volverAlMazo() {
   setTimeout(() => {
     mainCard.classList.remove('hidden');
     dealtContainer.classList.add('hidden');
-  }, 100);
+  }, 620);
 
   subtituloCartas.textContent = 'Hacé click para repartir 5 cartas';
 }

@@ -27,7 +27,9 @@ body {
   position: relative;
   width: 16rem;
   min-height: 20rem;
-  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease, all 0.3s ease;
 }
 
 .card-dealt.active {
@@ -45,7 +47,6 @@ body {
 .card-dealt:nth-child(4) { transition-delay: 0.4s; }
 
 .card-dealt:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease;
+  transform: scale(1.05) translateY(0);
   z-index: 10;
 }
