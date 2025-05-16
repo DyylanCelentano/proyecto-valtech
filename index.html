@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrenador de Entrevistas</title>
+    <title>Simulador de Entrevistas Express - Laburatorio Fundación Banco Nación</title>
     <link rel="stylesheet" href="src/style.css">
     <link rel="stylesheet" href="src/animacion-carta.css">
     <!-- Tailwind CSS via CDN -->
@@ -20,13 +20,9 @@
           class="h-40 md:h-42 object-contain">
     </header>
     <main class="flex flex-col items-center justify-center py-6">
-
-      <h1 class="text-4xl md:text-5xl font-bold text-center mb-4">ENTRENADOR DE ENTREVISTAS</h1>
-
-      <p class="text-xl text-center mb-8">Hacé click para repartir 5 cartas</p>
-
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-4">SIMULADOR DE ENTREVISTAS EXPRESS</h1>
+      <p id="subtituloCartas" class="text-xl text-center mb-8">Hacé click para repartir 5 cartas</p>
       <div class="flex flex-col md:flex-row w-full max-w-6xl gap-6 justify-center items-start"> <!-- Contenedor principal -->
-        
         <div class="flex flex-col items-center w-full md:w-3/4"> <!-- Flex -->
           
           <!-- Carta Principal -->
@@ -36,113 +32,82 @@
           </div>
 
           <!-- Cartas que aparecen despues (al principio estan ocultas) -->
-          <div id="dealtCards" class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full hidden"> <!-- Contenedor de cartas -->
-
-            <!-- carta 1 -->
-            <div class="w-full aspect-[3/4] bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
-
-              <div class="card-inner">
-
-                <!-- Carta de frente -->
-                <div class="card-front flex items-center justify-center">
-                  <img src="images/fondo-fundacion-bna.png" alt="" class="rounded-2xl h-24 w-24">
-                </div>
-
-                <!-- card-back -->
-
-                <div class="card-back flex items-center justify-center bg-gray-200 hidden">
-                  <p class="text-center text-gray-700 px-4">Texto de la pregunta</p>
-                </div>
-
-              </div> <!-- carta-innit -->
-
-            </div> <!-- Contenedor principal carta 1 -->
-
-
-            <!-- carta 2 -->
-            <div class="w-full aspect-[3/4] bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
-
-              <div class="card-innit">
-
-                <div class="card-front flex items-center justify-center">
-                  <img src="images/logo-pescar-completo.webp" alt="" class="rounded-2xl h-35 w-35">
-                </div>
-
-                <!-- card-back -->
-
-                <div class="card-back flex items-center justify-center bg-gray-200 hidden">
-                  <p class="text-center text-gray-700 px-4">Texto de la pregunta</p>
-                </div>
-
-              </div> <!-- card-innit -->
-
-            </div> <!-- Contenedor principal carta 2 -->
-
-
-            <!-- carta 3 -->
-            <div class="w-full aspect-[3/4] bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
-
-              <div class="card-innit">
-
-                <div class="card-front flex items-center justify-center">
-                  <img src="images/fondo-fundacion-bna.png" alt="" class="rounded-2xl h-24 w-24">
-                </div>
-
-                <!-- card-back -->
-
-                <div class="card-back flex items-center justify-center bg-gray-200 hidden">
-                  <p class="text-center text-gray-700 px-4">Texto de la pregunta</p>
-                </div>
-
-              </div> <!-- card-innit -->
-
-            </div> <!-- Contenedor principal carta 3 -->
-
-
-            <!-- carta 4 -->
-            <div class="w-full aspect-[3/4] bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
-
-              <div class="card-innit">
-
-                <div class="card-front flex items-center justify-center">
-                  <img src="images/logo-pescar-completo.webp" alt="" class="rounded-2xl h-35 w-35">
-                </div>
-
-                <!-- card-back -->
-
-                <div class="card-back flex items-center justify-center bg-gray-200 hidden">
-                  <p class="text-center text-gray-700 px-4">Texto de la pregunta</p>
-                </div>
-
-              </div> <!-- card-innit -->
-
-            </div> <!-- Contenedor principal carta 4 -->
-
-            <!-- carta 5 -->
-            <div class="w-full aspect-[3/4] bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
-
-              <div class="card-innit">
-
-                <div class="card-front flex items-center justify-center">
-                  <img src="images/fondo-fundacion-bna.png" alt="" class="rounded-2xl h-24 w-24">
-                </div>
-
-                <!-- card-back -->
-
-                <div class="card-back flex items-center justify-center bg-gray-200 hidden">
-                  <p class="text-center text-gray-700 px-4">Texto de la pregunta</p>
-                </div>
-
-              </div> <!-- card-innit -->
-
-            </div> <!-- Contenedor principal carta 5 -->
-
+          <div id="dealtContainer" class="hidden flex flex-col items-center"> <!-- Contenedor de cartas -->
+            <div id="dealtCards" 
+              class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 w-full justify-items-center">
+              <!-- carta 1 -->
+              <div class="w-full bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
+                <div class="card-inner">
+                  <!-- Carta de frente -->
+                  <div class="card-front flex items-center justify-center">
+                    <img src="images/fondo-fundacion-bna.png" alt="" class="rounded-2xl h-24 w-24">
+                  </div>
+  
+                  <!-- card-back -->
+                  <div class="card-back flex items-center justify-center"></div>
+                </div> <!-- carta-innit -->
+              </div> <!-- Contenedor principal carta 1 -->
+  
+  
+              <!-- carta 2 -->
+              <div class="w-full bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
+                <div class="card-inner">
+                  <div class="card-front flex items-center justify-center">
+                    <img src="images/logo-pescar-completo.webp" alt="" class="rounded-2xl h-35 w-35">
+                  </div>
+  
+                  <!-- card-back -->
+                  <div class="card-back flex items-center justify-center"></div>
+                </div> <!-- card-innit -->
+              </div> <!-- Contenedor principal carta 2 -->
+  
+  
+              <!-- carta 3 -->
+              <div class="w-full bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
+                <div class="card-inner">
+                  <div class="card-front flex items-center justify-center">
+                    <img src="images/fondo-fundacion-bna.png" alt="" class="rounded-2xl h-24 w-24">
+                  </div>
+  
+                  <!-- card-back -->
+                  <div class="card-back flex items-center justify-center"></div>
+                </div> <!-- card-innit -->
+              </div> <!-- Contenedor principal carta 3 -->
+  
+  
+              <!-- carta 4 -->
+              <div class="w-full bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
+                <div class="card-inner">
+                  <div class="card-front flex items-center justify-center">
+                    <img src="images/logo-pescar-completo.webp" alt="" class="rounded-2xl h-35 w-35">
+                  </div>
+  
+                  <!-- card-back -->
+                  <div class="card-back flex items-center justify-center"></div>
+                </div> <!-- card-innit -->
+              </div> <!-- Contenedor principal carta 4 -->
+  
+              <!-- carta 5 -->
+              <div class="w-full bg-white rounded-xl border border-gray-200 shadow-md flex items-center justify-center card card-dealt">
+                <div class="card-inner">
+                  <div class="card-front flex items-center justify-center">
+                    <img src="images/fondo-fundacion-bna.png" alt="" class="rounded-2xl h-24 w-24">
+                  </div>
+  
+                  <!-- card-back -->
+                <div class="card-back flex items-center justify-center"></div>
+                </div> <!-- card-innit -->
+              </div> <!-- Contenedor principal carta 5 -->
+            </div>
+            <!-- Botón de Volver al Mazo -->
+            <button id="returnButton" 
+                    class="mt-8 bg-white text-[#046089] font-bold py-3 px-8
+                    rounded-full hover:bg-blue-100 transition-colors duration-300 mx-auto">
+              Volver al Mazo
+            </button>
           </div> <!-- Contenedor de cartas -->
-
         </div> <!-- Flex -->
-
       </div> <!-- Contenedor principal -->
-
     </main>
 
     <footer class="w-full mt-auto">

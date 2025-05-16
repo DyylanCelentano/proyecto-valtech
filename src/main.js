@@ -4,95 +4,123 @@ import './style.css'
 lucide.createIcons();
 
 // Get DOM elements
-const mainCard = document.getElementById('mainCard');
-const dealtCards = document.getElementById('dealtCards');
-const returnButton = document.getElementById('returnButton');
+const mainCard       = document.getElementById('mainCard');
+const dealtContainer = document.getElementById('dealtContainer');
+const dealtCards     = document.getElementById('dealtCards');
+const returnButton   = document.getElementById('returnButton');
+const subtituloCartas = document.getElementById('subtituloCartas');
+
+const preguntasPorCarta = [
+  // Carta 1
+  [
+    "1. Para arrancar, contame un poco sobre vos. ¿Quién sos, de dónde venís, qué te gusta hacer?",
+    "2. A veces ayuda pensar en cómo te describiría un amigo cercano… ¿Qué creés que diría de vos?",
+    "3. ¿Estás estudiando algo actualmente? Puede ser una carrera, un curso o algo más informal también.",
+    "4. ¿Qué fue lo último que aprendiste que te haya entusiasmado, y cómo llegaste a eso?",
+    "5. Contame un poco sobre tu recorrido laboral. ¿Tuviste alguna experiencia previa trabajando?"
+  ],
+
+  // Carta 2
+  [
+    "1. Y si pensás en tus fortalezas, ¿qué es eso que sentís que hacés bien de manera natural?",
+    "2. ¿Qué te motivó a elegir esa carrera o área de estudio en particular?",
+    "3. Me interesa también saber cómo te organizas para equilibrar los estudios con otras actividades o responsabilidades.",
+    "4. Si ya pasaste por algún trabajo, ¿cómo fue ese paso por ahí?, ¿qué te llevaste de esa etapa?",
+    "5. En caso de que estés pensando en cambiar de trabajo, ¿qué te está motivando ese cambio?"
+  ],
+
+  // Carta 3
+  [
+    "1. Para arrancar, contame un poco sobre vos. ¿Quién sos, de dónde venís, qué te gusta hacer?",
+    "2. ¿Tenés pensado seguir formándote o especializarte en algo más adelante?",
+    "3. Y si mirás para atrás, ¿hubo alguna materia o proyecto que te haya marcado especialmente?",
+    "4. ¿Hay algún logro o momento en tu trayectoria que te haga sentir especialmente orgulloso?",
+    "5. También me interesa saber si atravesaste alguna situación difícil en el ámbito laboral o personal, y cómo la manejaste."
+  ],
+
+  // Carta 4
+  [
+    "1. A veces ayuda pensar en cómo te describiría un amigo cercano… ¿Qué creés que diría de vos?",
+    "2. Y si pensás en tus fortalezas, ¿qué es eso que sentís que hacés bien de manera natural?",
+    "3. ¿Estás estudiando algo actualmente? Puede ser una carrera, un curso o algo más informal también.",
+    "4. ¿Participaste en algún proyecto, ya sea personal, grupal o académico, que te haya entusiasmado mucho?",
+    "5. ¿Contaste con alguna experiencia previa trabajando? ¿Qué aprendiste de ella?"
+  ],
+
+  // Carta 5
+  [
+    "1. Para arrancar, contame un poco sobre vos. ¿Quién sos, de dónde venís, qué te gusta hacer?",
+    "2. ¿Qué fue lo último que aprendiste que te haya entusiasmado, y cómo llegaste a eso?",
+    "3. ¿Mecánica tu organización para equilibrar estudios con otras responsabilidades?",
+    "4. En caso de que estés pensando en cambiar de trabajo, ¿qué te está motivando ese cambio?",
+    "5. ¿Hay algún logro o momento en tu trayectoria que te haga sentir especialmente orgulloso?"
+  ]
+];
+
 
 // Función para repartir las cartas
 function repartirCartas() {
   mainCard.classList.add('hidden');
-  dealtCards.classList.remove('hidden');
+  dealtContainer.classList.remove('hidden');
+  subtituloCartas.textContent = 'Elige una carta para empezar la entrevista';
 
-  // Asegurarse de que todas las cartas estén en su estado inicial
   const cards = dealtCards.querySelectorAll('.card-dealt');
-  cards.forEach((card) => {
-    const cardFront = card.querySelector('.card-front');
-    const cardBack = card.querySelector('.card-back');
+  cards.forEach((card, index) => {
+    const front = card.querySelector('.card-front');
+    const back  = card.querySelector('.card-back');
+    front.classList.remove('hidden');
+    back.classList.add('hidden');
+    back.innerHTML = '';
+    card.classList.remove('show');
 
-    cardFront.classList.remove('hidden'); // Mostrar el frente
-    cardBack.classList.add('hidden'); // Ocultar el reverso
-    cardBack.innerHTML = ''; // Limpiar el contenido dinámico de la carta trasera
+    card.onclick = () => vueltaCarta(card, index);
   });
 
-  // Agregar eventos de clic a las cartas
-  clickCarta();
-
-  // Animar las cartas
-  cards.forEach((card, index) => {
-    setTimeout(() => {
-      card.classList.add('show')
-    }, index * 100); // 100ms entre cada carta
+  cards.forEach((card, i) => {
+    setTimeout(() => card.classList.add('show'), i * 100);
   });
 }
 
-/* Funcion para que se vuelva al mazo */
+// Función para volver al mazo
 function volverAlMazo() {
-  const cards = dealtCards.querySelectorAll('.card-dealt')
-  cards.forEach((card) => {
-    const cardFront = card.querySelector('.card-front')
-    const cardBack = card.querySelector('.card-back')
-
-    // Restaurar el estado inicial de la carta
-    cardFront.classList.remove('hidden') 
-    cardBack.classList.add('hidden') 
-    cardBack.innerHTML = ''; // Limpiar el contenido dinámico del reverso
+  const cards = dealtCards.querySelectorAll('.card-dealt');
+  cards.forEach(card => {
+    card.classList.remove('show');
+    const front = card.querySelector('.card-front');
+    const back  = card.querySelector('.card-back');
+    front.classList.remove('hidden');
+    back.classList.add('hidden');
+    back.innerHTML = '';
+    card.onclick = null;
   });
 
   setTimeout(() => {
-    mainCard.classList.remove('hidden'); // Mostrar el mazo principal
-    dealtCards.classList.add('hidden'); // Ocultar las cartas repartidas
-  }, 10); // // delay
+    mainCard.classList.remove('hidden');
+    dealtContainer.classList.add('hidden');
+  }, 100);
+
+  subtituloCartas.textContent = 'Hacé click para repartir 5 cartas';
 }
 
-// Función para dar vuelta una carta
-function vueltaCarta(card) {
-  const cardFront = card.querySelector('.card-front');
-  const cardBack = card.querySelector('.card-back');
+function vueltaCarta(card, indice) {
+  const front = card.querySelector('.card-front');
+  const back  = card.querySelector('.card-back');
+  const preguntas = preguntasPorCarta[indice] || [];
 
-  // Ocultar el frente y mostrar el reverso
-  cardFront.classList.add('hidden');
-  cardBack.classList.remove('hidden');
+  front.classList.add('hidden');
+  back.classList.remove('hidden');
 
-  // Agregar contenido dinámico al reverso
-  cardBack.innerHTML = `
-    <div class="flex flex-col items-center justify-center text-white rounded-2xl bg-gray-800">
-      <p class="text-center px-4 mb-4">- pregunta 1</p>
-      <p class="text-center px-4 mb-4">- pregunta 2</p>
-      <p class="text-center px-4 mb-4">- pregunta 3</p>
-      <p class="text-center px-4 mb-4">- pregunta 4</p>
-      <p class="text-center px-4 mb-4">- pregunta 5</p>
-      <button id="volver-mazo" class="bg-blue-500 text-white px-4 py-3 my-1 rounded-lg">Volver al mazo</button>
+  back.innerHTML = `
+    <div class="flex flex-col items-start text-left text-black rounded-2xl bg-white p-4 w-[250px] h-full overflow-y-auto">
+      ${preguntas
+        .map(q => `<p class="text-sm mb-2 px-1 w-full break-words">${q}</p>`)
+        .join('')}
     </div>
-  `
+  `;
 
-  // Agregar evento al botón "Volver al mazo"
-  const botonVolverAlMazo = cardBack.querySelector('#volver-mazo');
-  botonVolverAlMazo.addEventListener('click', () => {
-    volverAlMazo();
-  })
+  card.classList.remove('mx-8');
 }
 
-/* Funcion agregarle evento de click a CADA carta */
-function clickCarta() {
-  const cards = dealtCards.querySelectorAll('.card-dealt')
-
-  cards.forEach( (card) => {
-    card.addEventListener('click', () => {
-      vueltaCarta(card) /* Llama a la funcion para que de vuelta ESA carta */
-    })
-  })
-}
-
-// Add event listeners
-mainCard.addEventListener('click', repartirCartas)
-returnButton.addEventListener('click', volverAlMazo)
+// Event listeners
+mainCard.addEventListener('click', repartirCartas);
+returnButton.addEventListener('click', volverAlMazo);
