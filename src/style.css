@@ -11,10 +11,6 @@ body {
   background-color: #046087;
 }
 
-#dealtCards {
-  gap: 300px; /* Separación entre cartas */
-}
-
 .card {
   transition: all 0.3s ease;
 }
@@ -25,8 +21,8 @@ body {
 
 .card-dealt {
   position: relative;
-  width: 16rem;
-  min-height: 20rem;
+  width: 16rem !important;
+  min-height: 20rem !important;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.4s ease, transform 0.4s ease, all 0.3s ease;
@@ -47,6 +43,6 @@ body {
 .card-dealt:nth-child(4) { transition-delay: 0.4s; }
 
 .card-dealt:hover {
-  transform: scale(1.05) translateY(0);
+  transform: scale(1.05) translateY(0) !important;
   z-index: 10;
 }
