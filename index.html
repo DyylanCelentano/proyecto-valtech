@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego de Mentores - Valtech</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body class="min-h-screen flex flex-col items-center justify-between bg-black text-white">
+  <header class="w-full flex justify-center py-6 bg-white">
+    <img src="https://www.valtech.com/static/logo-valtech-black-9d4bc46a0c6d68b09307f4f4a5e89f3d.svg" alt="Valtech Logo" class="h-16 object-contain">
+  </header>
+
+  <div class="flex flex-col items-center justify-center py-8 w-full max-w-7xl px-4">
+    <h1 class="text-4xl md:text-5xl font-bold text-center mb-4">JUEGO DE MENTORES</h1>
+
+    <div id="start-screen" class="flex flex-col items-center space-y-6 mt-8">
+      <p class="text-xl text-center mb-4">
+        Selecciona una carta de mentor y una de pregunta para iniciar una ronda
+      </p>
+      <button id="start-button" class="bg-white text-black hover:bg-gray-200 font-bold py-3 px-8 rounded-full">
+        Comenzar Juego
+      </button>
+    </div>
+
+    <div id="game-screen" class="w-full hidden">
+      <div class="flex flex-col md:flex-row items-center justify-between w-full mb-8">
+        <p class="text-xl text-center md:text-left mb-4 md:mb-0">
+          Selecciona una carta de mentor y una de pregunta
+        </p>
+        <div class="bg-white text-black px-6 py-3 rounded-full shadow-md">
+          <p class="font-bold">Ronda: <span id="round-counter">0</span></p>
+        </div>
+      </div>
+
+      <div id="match-display" class="bg-white text-black p-6 rounded-xl shadow-lg mb-8 w-full max-w-2xl mx-auto hidden">
+        <h2 id="selected-mentor" class="text-2xl font-bold mb-4"></h2>
+        <p id="selected-question" class="text-lg"></p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="space-y-4">
+          <h2 class="text-2xl font-bold text-center mb-4">Mentores</h2>
+          <div id="mentors-container" class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <!-- Mentors cards will be inserted here -->
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <h2 class="text-2xl font-bold text-center mb-4">Preguntas</h2>
+          <div id="questions-container" class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <!-- Questions cards will be inserted here -->
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-center mt-8">
+        <button id="restart-button" class="bg-white text-black hover:bg-gray-200 font-bold py-3 px-8 rounded-full">
+          Reiniciar Juego
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="w-full mt-auto bg-white text-black py-6">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-6 px-4">
+      <img src="https://www.valtech.com/static/logo-valtech-black-9d4bc46a0c6d68b09307f4f4a5e89f3d.svg" alt="Valtech Logo" class="h-12 object-contain">
+      <p class="text-center md:text-left text-sm md:text-base">
+        Juego creado para la charla con mentores técnicos de Valtech
+      </p>
+    </div>
+  </footer>
+
+  <script src="src/main.js"></script>
+</body>
+</html>
