@@ -165,7 +165,7 @@ function checkForMatch() {
       allCards.forEach(card => {
         card.classList.remove('disabled');
       });
-    }, 3000);
+    }, 10000);
   }
 }
 
